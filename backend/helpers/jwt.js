@@ -13,8 +13,9 @@ exports.createToken = function(user) {
         // iat Trabaja con la fecha, hora y dia
         // moment crea el dia y la fecha actual
         // unix: formato numero
+        role: user.rol,
         iat: moment().unix(),
-        exp: moment(7, 'days').unix()
+        exp: moment().add(7, 'days').unix()
     }
     return jwt.encode(payload, secret);
 }
